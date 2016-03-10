@@ -14,8 +14,13 @@ Objectives of C-Arrays-2 Lesson:
 
 */
 #include <stdio.h>
+#include<conio.h>
 #include "FunctionHeadersArrays2.h"
-
+struct transaction {
+	int amount;
+	char date[11];
+	char description[20];
+};
 int main(){
 
 	//Test countGreaterNumbers
@@ -23,8 +28,12 @@ int main(){
 	//Test findSingleOccurenceNumber
 
 	//Test mergeSortedArray
-
+	struct transaction A[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
+	struct transaction B[3] = { { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" }, { 60, "22-04-2006", "Sixth" } };
+	struct transaction *result1 = mergeSortedArrays(A, 3, B, 3);
 	//Test sortedArraysCommonElements
-
+	printf("%d",result1[0].amount);
+	printf("%d", result1[1].amount);
+	getch();
 	return 0;
 }
